@@ -1,0 +1,30 @@
+@import "index";
+
+.drag-content {
+  display: flex;
+
+  width: $drag-arrow-width;
+
+  .drag-bg {
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: inherit;
+    height: $box-height;
+    background-color: $success-color;
+  }
+
+  .drag-arrow {
+    flex-shrink: 0;
+
+    width: $drag-arrow-width;
+    height: $drag-arrow-height;
+    background-color: $primary-color;
+
+    cursor: pointer;
+
+    .icon {
+      width: 20px;
+      height: $drag-arrow-height;
+    }
+  }
+}
