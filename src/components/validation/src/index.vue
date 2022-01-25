@@ -1,6 +1,6 @@
 <template>
     <div>
-        <dragToEnd style="width: 300px;"></dragToEnd>
+        <dragToEnd style="width: 300px;" @dragEvent="ttt"></dragToEnd>
     </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
     },
     props: {
 
+    },
+    methods: {
+        ttt(flag) {
+            console.log(flag)
+        }
     }
 }
 </script>

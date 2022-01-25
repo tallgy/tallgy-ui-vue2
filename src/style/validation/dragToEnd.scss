@@ -1,9 +1,12 @@
 @import "index";
 
+//滑动内部盒子，content的宽度的变化引发滑动的效果
 .drag-content {
   display: flex;
 
   width: $drag-arrow-width;
+
+  border-radius: $box-height;
 
   .drag-bg {
     flex-shrink: 1;
@@ -26,5 +29,21 @@
       width: 20px;
       height: $drag-arrow-height;
     }
+  }
+}
+
+//滑动失败回退的过渡效果
+.drag-back {
+  transition: all .5s;
+}
+
+//滑动失败回退
+@keyframes drag-back {
+  0% {
+
+  }
+
+  100% {
+    width: $drag-arrow-width;
   }
 }

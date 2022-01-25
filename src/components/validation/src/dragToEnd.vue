@@ -1,6 +1,6 @@
 <template>
     <div ref="drag-box" class="drag-box">
-        <div ref="drag-content" class="drag-content">
+        <div ref="drag-content" class="drag-content" :class="[{'drag-back': dragBackAnime && !isDragState}]">
             <div class="drag-bg"></div>
             <div class="drag-arrow" @mousedown="mouseStart($event)" draggable="false">
                 <!--            箭头-->
@@ -13,12 +13,20 @@
 <script>
 export default {
     name: "dragToEnd",
+    props: {
+        // 滑动失败回退动画，默认为true
+        dragBackAnime: {
+            type: Boolean,
+            default: true
+        }
+    },
     data() {
         return {
             endPosition: 0,    // 盒子宽度
             mouseStartPosition: 0,  // 鼠标按下的位置
             dragContentWidth: 0,    // 拖拽内容的宽度，依靠这个宽度和鼠标的差来进行移动
 
+            isDragState: false, // 是否属于拖拽状态
             isDragOK: false,    // 是否拖拽成功
         }
     },
@@ -32,6 +40,7 @@ export default {
         },
         // 开始拖动
         mouseStart(e) {
+            this.isDragState = true
             if (this.isDragOK) return
 
             this.mouseStartPosition = e.clientX
@@ -56,6 +65,7 @@ export default {
             }
         },
         mouseEnd() {
+            this.isDragState = false
             document.removeEventListener('mousemove', this.mouseMove)
             setTimeout(() => {
                 document.removeEventListener('mouseup', this.mouseEnd)
@@ -65,10 +75,12 @@ export default {
         },
         validationMethod() {
             if (this.isDragOK) {
-
+                // 提交一个事件，成功带true，失败带false
+                this.$emit('dragEvent', true)
                 return
             }
 
+            this.$emit('dragEvent', false)
             this.$refs['drag-content'].style.width = this.dragContentWidth + 'px'
         }
     }
