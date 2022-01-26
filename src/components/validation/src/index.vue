@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <dragToEnd style="width: 300px;" @dragEvent="ttt"></dragToEnd>
-    </div>
+    <component :is="dragType" @dragEvent="dragEvent"></component>
 </template>
 
 <script>
@@ -13,11 +11,14 @@ export default {
         dragToEnd
     },
     props: {
-
+        dragType: {
+            type: String,
+            default: 'dragToEnd'
+        }
     },
     methods: {
-        ttt(flag) {
-            console.log(flag)
+        dragEvent(flag) {
+            this.$emit('dragEvent', flag)
         }
     }
 }

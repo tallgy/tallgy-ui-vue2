@@ -1,6 +1,26 @@
 @import "../index";
 
-$box-height: 30px;
+$box-height: 40px;
 
 $drag-arrow-height: $box-height;
-$drag-arrow-width: 30px;
+$drag-arrow-width: 40px;
+
+// 滑动框的大小,暂时不写。
+
+//滑动框比圆角效果
+.small-radius {
+  border-radius: 5px;
+}
+.large-radius {
+  border-radius: 10px;
+}
+.round-radius {
+  border-radius: $box-height;
+}
+
+.text-position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

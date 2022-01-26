@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld style="width: 500px; height: 500px; background:#000;" msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
@@ -8,10 +8,15 @@
 import HelloWorld from './components/validation'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    provide: {
+        dragEventFn: function (flag) {
+            console.log(flag)
+        }
+    },
+    name: 'App',
+    components: {
+        HelloWorld
+    }
 }
 </script>
 

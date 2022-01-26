@@ -2,22 +2,21 @@
 
 //滑动内部盒子，content的宽度的变化引发滑动的效果
 .drag-content {
-  display: flex;
-
   width: $drag-arrow-width;
 
-  border-radius: $box-height;
 
   .drag-bg {
-    flex-shrink: 1;
-    flex-grow: 1;
+    position: relative;
+
     width: inherit;
     height: $box-height;
     background-color: $success-color;
   }
 
   .drag-arrow {
-    flex-shrink: 0;
+    position: absolute;
+    right: 0;
+    border-radius: inherit;
 
     width: $drag-arrow-width;
     height: $drag-arrow-height;
@@ -26,7 +25,7 @@
     cursor: pointer;
 
     .icon {
-      width: 20px;
+      width: 30px;
       height: $drag-arrow-height;
     }
   }
