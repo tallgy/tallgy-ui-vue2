@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld style="width: 500px; height: 500px; background:#000;" msg="Welcome to Your Vue.js App"/>
+    <HelloWorld style="width: 500px; height: 40px; background: gray;" msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 

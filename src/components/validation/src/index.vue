@@ -1,5 +1,7 @@
 <template>
-    <component :is="dragType" @dragEvent="dragEvent"></component>
+    <div style="position: relative;">
+      <component :is="dragType" @dragEvent="dragEvent"></component>
+    </div>
 </template>
 
 <script>

@@ -3,7 +3,7 @@
 //滑动内部盒子，content的宽度的变化引发滑动的效果
 .drag-content {
   width: $drag-arrow-width;
-
+  //position: relative;
 
   .drag-bg {
     position: relative;
